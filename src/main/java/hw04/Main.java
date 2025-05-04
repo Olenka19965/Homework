@@ -10,7 +10,7 @@ public class Main {
         Human nataliNesturenko = new Human("Nesturenko", "Natali", 1968,89);
         Human davidLaser = new Human("Laser", "David", 1971,75);
         Human alexaLaser = new Human("Laser", "Alexa", 1976,98);
-        Human maryaLaser = new Human("Laser", "Marya", 1996, alexaLaser,davidLaser,82,petLily);
+        Human maryaLaser = new Human("Laser", "Marya", 1996, alexaLaser,davidLaser,82,petLily);  // змінили прізвище на "Laser"
         Human piterNesturenko = new Human("Nesturenko", "Piter", 1995, nataliNesturenko, nikolasNesturenko, 94 , petLily);
         Human harryNesturenko = new Human("Nesturenko", "Harry", 2019, maryaLaser, piterNesturenko,78,petHanyka);
         Human erikaNesturenko = new Human("Nesturenko","Erika",1990,nataliNesturenko,nikolasNesturenko,90,petRoki);

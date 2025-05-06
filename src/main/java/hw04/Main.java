@@ -1,16 +1,17 @@
-package hw03;
+package hw04;
 
 public class Main {
     public static void main(String[] args) {
-        Pet petLily = new Pet("dog", "Lily", 3);
-        Pet petRoki = new Pet("dog","Roki",6);
-        Pet petMimi = new Pet("cat","Mimi",1);
-        Pet petHanyka = new Pet("cat","Hanyka",4);
+        Pet petLily = new Pet(Pet.Species.dog, "Lily", 3);
+        Pet petRoki = new Pet(Pet.Species.turtle,"Roki",6);
+        Pet petMimi = new Pet(Pet.Species.cat,"Mimi",1);
+        Pet petHanyka = new Pet(Pet.Species.hamster,"Hanyka",4);
+        Pet petBally = new Pet(Pet.Species.bird,"Bally",2);
         Human nikolasNesturenko = new Human("Nesturenko", "Nikolas", 1965,90);
         Human nataliNesturenko = new Human("Nesturenko", "Natali", 1968,89);
         Human davidLaser = new Human("Laser", "David", 1971,75);
         Human alexaLaser = new Human("Laser", "Alexa", 1976,98);
-        Human maryaLaser = new Human("Laser", "Marya", 1996, alexaLaser,davidLaser,82,petLily);  // змінили прізвище на "Laser"
+        Human maryaLaser = new Human("Laser", "Marya", 1996, alexaLaser,davidLaser,82,petBally);
         Human piterNesturenko = new Human("Nesturenko", "Piter", 1995, nataliNesturenko, nikolasNesturenko, 94 , petLily);
         Human harryNesturenko = new Human("Nesturenko", "Harry", 2019, maryaLaser, piterNesturenko,78,petHanyka);
         Human erikaNesturenko = new Human("Nesturenko","Erika",1990,nataliNesturenko,nikolasNesturenko,90,petRoki);
@@ -56,5 +57,11 @@ public class Main {
 
         harryNesturenko.greetPet();
         harryNesturenko.describePet();
+
+
+        for (int i = 0; i< 10000000; i++){
+            new Human("Name" + i, "Surname" + i, 1990 +i,91 + i);
+        }
+
     }
 }

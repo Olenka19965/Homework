@@ -1,5 +1,4 @@
 package hw03;
-
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
@@ -9,9 +8,6 @@ public class Human {
     private String surname;
     private int year;
     private int iq;
-    private Pet pet;
-    private Human mother;
-    private Human father;
     private String[][] schedule;
     private Family family;
 
@@ -26,24 +22,18 @@ public class Human {
         this.surname = surname;
         this.name = name;
         this.year = year;
-        this.mother = mother;
-        this.father = father;
+        this.family = new Family(mother,father);
     }
 
     Human(String surname, String name, int year, Human mother, Human father, int iq, Pet pet) {
         this.surname = surname;
         this.name = name;
         this.year = year;
-        this.mother = mother;
-        this.father = father;
+        this.family = new Family(mother,father,pet);
         this.iq = iq;
-        this.pet = pet;
         this.schedule = generateRandomSchedule();
     }
-
-    Human() {
-    }
-
+    Human() {}
     public void setFamily(Family family) {
         this.family = family;
     }
@@ -76,27 +66,23 @@ public class Human {
             System.out.println(day[0] + ": " + day[1]);
         }
     }
-
     void greetPet() {
-        System.out.println("Hello " + pet.getNickname());
+        System.out.println("Hello " + family.getPet().getNickname());
     }
-
     void describePet() {
-        System.out.println(pet.getDescribePet());
+        System.out.println(family.getPet().getDescribePet());
     }
-
     @Override
     public String toString() {
         return String.format("Human{name='%s', surname='%s', year=%d, iq=%d, mother=%s, father=%s, pet=%s}",
                 (name != null) ? name : "Name: Not available",
                 (surname != null) ? surname : "Surname: Not available",
                 (year > 0) ? year : "Year: Not available",
-                (iq >= 0) ? iq : "Iq: Not available",
-                (mother != null) ? mother.toString() : "Mother: Not available",
-                (father != null) ? father.toString() : "Father: Not available",
-                (pet != null) ? pet.toString() : "Pet: Not available");
+                (iq != 0) ? iq : "Iq: Not available",
+                (family.getMother() != null) ? family.getMother().toString() : "Mother: Not available",
+                (family.getFather() != null) ? family.getFather().toString() : "Father: Not available",
+                (family.getPet() != null) ? family.getPet().toString() : "Pet: Not available");
     }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -104,7 +90,6 @@ public class Human {
         Human human = (Human) obj;
         return year == ((Human) obj).year && surname.equals(human.surname) && name.equals(human.name);
     }
-
     @Override
     public int hashCode() {
         return java.util.Objects.hash(year, surname, name);

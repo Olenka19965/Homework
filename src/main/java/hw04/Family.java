@@ -1,5 +1,4 @@
-package hw03;
-
+package hw04;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -8,27 +7,30 @@ public class Family {
     private Human father;
     private Human[] children;
     private Pet pet;
-    Family(Human mother, Human father){
+    public Family(Human mother, Human father){
         this.mother = mother;
         this.father = father;
         mother.setFamily(this);
         father.setFamily(this);
         this.children = new Human[0];}
-    Family(Human mother, Human father, Pet pet){
+    public Family(Human mother, Human father, Pet pet){
         this.mother = mother;
         this.father = father;
         mother.setFamily(this);
         father.setFamily(this);
         this.pet = pet;
         this.children = new Human[0];}
-    void addChild(Human child){
-        Human [] newChildren = new Human[children.length + 1];
+    public Pet getPet(){return pet;}
+    public Human getMother() {return mother;}
+    public Human getFather(){return father;}
+    public void addChild(Human child){
+        Human[] newChildren = new Human[children.length + 1];
         System.arraycopy(children,0,newChildren,0, children.length);
         newChildren [children.length] = child;
         children = newChildren;}
-    Human[] getChildren() {
+    public Human[] getChildren() {
         return children;}
-    void deleteChild(int index){
+    public void deleteChild(int index){
         if (index < 0 || index >= children.length) {
             System.out.println("Invalid index");
             return;}
@@ -39,7 +41,7 @@ public class Family {
         System.arraycopy(children,0,removeChild,0, index);
         System.arraycopy(children, index + 1, removeChild, index, children.length - index - 1);
         children = removeChild;}
-    void deleteChild(Human child){
+    public void deleteChild(Human child){
         boolean found = false;
         for (int i = 0; i < children.length; i++){
             if (children[i].equals(child)){
@@ -52,6 +54,12 @@ public class Family {
         int count = 2 + (children.length);
         System.out.println("In the family " + count + " persons.");
         return count;}
+
+    @Override
+    protected void finalize() throws Throwable{
+        System.out.println("Finalize is called for: " + this);
+        super.finalize();
+    }
     @Override
     public String toString() {
         return String.format("Family{mother=%s, father=%s, pet=%s, children=%s}",

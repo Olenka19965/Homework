@@ -21,6 +21,10 @@ public class Family {
         father.setFamily(this);
         this.pet = pet;
         this.children = new Human[0];}
+    public Pet getPet(){return pet;}
+    public Human getMother() {return mother;}
+    public Human getFather(){return father;}
+
     void addChild(Human child){
         Human [] newChildren = new Human[children.length + 1];
         System.arraycopy(children,0,newChildren,0, children.length);

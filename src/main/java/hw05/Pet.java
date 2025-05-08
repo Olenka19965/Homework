@@ -1,32 +1,43 @@
-package hw04;
+package hw05;
 import java.util.Arrays;
 import java.util.Random;
-public class Pet {
+
+public abstract class Pet {
     private Species species;
     private String nickname;
-    private int age;
     private int trickLevel;
-    private String[]habits;
-    public enum Species{ dog, cat, hamster, bird, turtle}
-    Pet(Species species, String nickname){
-        this.species = species;
+    private String[] habits;
+    private int age;
+    public enum Species{ dog, roboCat,domesticCat, fish,UNKNOWN}
+    Pet(String nickname){
+        this.species = Species.UNKNOWN;
         this.nickname = nickname;
         Random rand = new Random();
         this.trickLevel = rand.nextInt(101);
         this.habits = getRandomHabits();}
-    Pet(Species species, String nickname, int age ){
-        this.species = species;
+    Pet(String nickname, int age ){
+        this.species = Species.UNKNOWN;
         this.nickname = nickname;
         this.age = age;
         Random rand = new Random();
         this.trickLevel = rand.nextInt(101);
         this.habits = getRandomHabits();}
     Pet(){}
-    public String getNickname(){
-        return nickname;}
-    public String getDescribePet(){
+    public void setSpecies(Species species) {
+        if (species != null) {
+            this.species = species;
+        } else {
+            this.species = Species.UNKNOWN; // Якщо вид невідомий, ставимо UNKNOWN
+        }
+    }
+    public Species getSpecies() {return species;}
+    String getNickname(){return nickname;}
+    String getDescribePet(){
         return "I have " + species + ", it is " + age + " years old, and its trick level is "+ getTrickLevelDescription() + ". Its habits are: " + String.join(", ", habits);}
-    private String[] getRandomHabits() {
+    protected String[] getRandomHabits() {
+        if (species == Species.fish || species == Species.roboCat) {
+            return new String[] { "No hobbies" };
+        }
         Random rand = new Random();
         String[] chosen = new String[3];
         for(int i = 0; i < 3; i++)
@@ -50,8 +61,8 @@ public class Pet {
             "waking the owner at 5 am"};
     void describePet() {System.out.println(getDescribePet());}
     void eat(){System.out.println("I eat!");}
-    void respond(){System.out.println("Hello, host. I " + nickname + " I missed you!");}
-    void foul(){System.out.println("You need to cover your tracks well...");}
+    public abstract void respond();
+    public abstract void voice();
     @Override
     protected void finalize() throws Throwable{
         System.out.println("Finalize is called for: " + this);

@@ -10,4 +10,8 @@ public final class Man extends Human{
     public void shaveНourFace(){System.out.println("I am shaving my beard.");}
     @Override
     public void greetPet() {System.out.println("Hello " + family.getPet().getNickname());}
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -1,11 +1,11 @@
-package hw05;
+package hw07.Pet;
 
-public class Fish extends Pet{
+public class Fish extends Pet {
     Fish(String nickname){
         super(nickname);
         setSpecies(Species.fish);
         }
-    Fish(String nickname, int age ){
+    public Fish(String nickname, int age){
         super(nickname,age);
         setSpecies(Species.fish);
         }

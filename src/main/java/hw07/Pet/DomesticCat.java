@@ -1,10 +1,10 @@
-package hw05;
+package hw07.Pet;
 
-public class DomesticCat extends Pet implements Foulable{
+public class DomesticCat extends Pet implements Foulable {
     DomesticCat(String nickname){
         super(nickname);
         setSpecies(Species.domesticCat);}
-    DomesticCat(String nickname, int age ){
+    public DomesticCat(String nickname, int age){
         super(nickname,age);
         setSpecies(Species.domesticCat);}
     DomesticCat(){}

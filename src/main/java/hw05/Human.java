@@ -33,12 +33,9 @@ public abstract class Human {
     public void setFamily(Family family) {
         this.family = family;
     }
-    public void setSchedule(String[][] schedule) {
-        this.schedule = schedule;
-    }
-    public String[][] getSchedule() {
-        return schedule;
-    }
+    public void setSchedule(String[][] schedule) {this.schedule = schedule;}
+    public String getName() {return name;}
+    public String[][] getSchedule() {return schedule;}
     private String[][] generateRandomSchedule() {
         String[] tasks = {"Reading", "Writing", "Gym", "Swimming", "Dancing", "Cooking", "Watching movies", "Cycling",
                 "Hiking", "Painting", "Yoga", "Music practice", "Traveling", "Photography", "Gardening",
@@ -69,14 +66,15 @@ public abstract class Human {
     }
     @Override
     public String toString() {
-        return String.format("Human{name='%s', surname='%s', year=%d, iq=%d, mother=%s, father=%s, pet=%s}",
+        return String.format("Human{name='%s', surname='%s', year=%d, iq=%d, mother='%s', father='%s', pet='%s'}",
                 (name != null) ? name : "Name: Not available",
                 (surname != null) ? surname : "Surname: Not available",
                 (year > 0) ? year : "Year: Not available",
                 (iq != 0) ? iq : "Iq: Not available",
-                (family.getMother() != null) ? family.getMother().toString() : "Mother: Not available",
-                (family.getFather() != null) ? family.getFather().toString() : "Father: Not available",
-                (family.getPet() != null) ? family.getPet().toString() : "Pet: Not available");
+                (family != null &&family.getMother() != null) ? family.getMother().getName() : "Mother: Not available",
+                (family != null &&family.getFather() != null) ? family.getFather().getName() : "Father: Not available",
+                (family != null &&family.getPet() != null) ? family.getPet().getNickname() : "Pet: Not available"
+        );
     }
     @Override
     public boolean equals(Object obj) {

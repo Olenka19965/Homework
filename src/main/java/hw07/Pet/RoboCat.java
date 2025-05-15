@@ -1,10 +1,10 @@
-package hw05;
+package hw07.Pet;
 
-public class RoboCat extends Pet{
+public class RoboCat extends Pet {
     RoboCat(String nickname){
         super(nickname);
         setSpecies(Species.roboCat);}
-    RoboCat(String nickname, int age ){
+    public RoboCat(String nickname, int age){
         super(nickname,age);
         setSpecies(Species.roboCat);}
     RoboCat(){}

@@ -10,4 +10,8 @@ public final class Woman extends Human{
     public void manicure(){System.out.println("I paint my nails with red polish.");}
     @Override
     public void greetPet() {System.out.println("Hello, my sweet " + family.getPet().getNickname());}
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -73,8 +73,8 @@ public abstract class Pet {
         return String.format("%s{nickname='%s', age=%s, trickLevel=%s, habits=%s}",
                 (species != null) ? species : "Species: Not available",
                 (nickname != null) ? nickname : "Nickname: Not available",
-                (age > 0) ? age : "Age: Not available", // Тут повертається "Age: Not available", якщо age <= 0
-                (trickLevel >= 0) ? trickLevel : "TrickLevel: Not available", // Якщо trickLevel < 0, повертається "TrickLevel: Not available"
+                (age > 0) ? age : "Age: Not available",
+                (trickLevel >= 0) ? trickLevel : "TrickLevel: Not available",
                 (habits != null) ? Arrays.toString(habits) : "Habits: Not available");}
     @Override
     public boolean equals(Object obj){

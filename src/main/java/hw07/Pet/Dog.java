@@ -1,10 +1,10 @@
-package hw05;
+package hw07.Pet;
 
 public class Dog extends Pet implements Foulable {
-    Dog( String nickname){
+    Dog(String nickname){
         super(nickname);
         setSpecies(Species.dog);}
-    Dog( String nickname, int age ){
+    public Dog(String nickname, int age){
         super(nickname,age);
         setSpecies(Species.dog);
         }

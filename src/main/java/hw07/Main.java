@@ -24,7 +24,6 @@ public class Main {
         Human davidLaser = new Man("Laser", "David", "20/03/1971", 75);
         Human alexaLaser = new Woman("Laser", "Alexa", "02/10/1976", 98);
 
-        // Створення Set<Pet> вручну, без Set.of()
         Set<Pet> petsBally = new HashSet<>();
         petsBally.add(petBally);
         Human maryaLaser = new Woman("Laser", "Marya", "02/06/1996", alexaLaser, davidLaser, 82, petsBally);
@@ -66,7 +65,6 @@ public class Main {
         oldLaser.countFamily();
         System.out.println(oldLaser.toString());
 
-        // Ось створення youngNesterenko з Set<Pet> вручну
         Set<Pet> petsForYoungNesterenko = new HashSet<>();
         petsForYoungNesterenko.add(petLily);
         Family youngNesterenko = new Family(maryaLaser, piterNesturenko, petsForYoungNesterenko);
@@ -91,7 +89,7 @@ public class Main {
         harryNesturenko.greetPet();
         harryNesturenko.describePet();
         System.out.println(harryNesturenko.describeAge());
-        // Цикл для перевірки пам'яті (закоментовано)
+
         // for (int i = 0; i < 10000000; i++) {
         //     new Man("Name" + i, "Surname" + i, 1990 + i, 91 + i);
         // }
